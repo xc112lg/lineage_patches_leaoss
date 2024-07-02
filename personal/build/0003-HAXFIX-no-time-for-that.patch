@@ -1,30 +1,31 @@
-From 4317bd6f2459dba3fc81baf6d720098a34cda80b Mon Sep 17 00:00:00 2001
+From 92392b5bc43d09561c343410999542f52cc86e75 Mon Sep 17 00:00:00 2001
 From: Victor Bo <bvoid@yandex.ru>
 Date: Sat, 19 Dec 2020 10:12:40 -0500
-Subject: [PATCH 09/10] HAXFIX: no time for that!
+Subject: [PATCH 3/5] HAXFIX: no time for that!
 
   Prebuilt apk found in PRODUCT_COPY_FILES: $(1), use BUILD_PREBUILT
   instead blablabla
 
 Change-Id: Ia30e92df22e343f9dd61850aefaa573fbcb3b825
 ---
- core/Makefile | 3 ---
- 1 file changed, 3 deletions(-)
+ core/Makefile | 4 ----
+ 1 file changed, 4 deletions(-)
 
 diff --git a/core/Makefile b/core/Makefile
-index 4f047bd59..0177eb81e 100644
+index 38357f5ae..af7dba374 100644
 --- a/core/Makefile
 +++ b/core/Makefile
-@@ -14,9 +14,6 @@ LOCAL_PATH := $(BUILD_SYSTEM)
+@@ -14,10 +14,6 @@ LOCAL_PATH := $(BUILD_SYSTEM)
  #$(1): the src:dest pair
  #$(2): the dest
  define check-product-copy-files
--$(if $(filter-out $(TARGET_COPY_OUT_SYSTEM_OTHER)/%,$(2)), \
--  $(if $(filter %.apk, $(2)),$(error \
+-$(if $(filter-out $(TARGET_COPY_OUT_SYSTEM_OTHER)/% \
+-                  $(TARGET_COPY_OUT_SYSTEM)/framework/%.apk,$(2)), \
+-  $(if $(filter %.apk, $(2)),$(info \
 -     Prebuilt apk found in PRODUCT_COPY_FILES: $(1), use BUILD_PREBUILT instead!))) \
  $(if $(filter true,$(BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES)),, \
    $(if $(filter $(TARGET_COPY_OUT_SYSTEM)/etc/vintf/% \
                  $(TARGET_COPY_OUT_SYSTEM)/manifest.xml \
 -- 
-2.17.1
+2.25.1
 

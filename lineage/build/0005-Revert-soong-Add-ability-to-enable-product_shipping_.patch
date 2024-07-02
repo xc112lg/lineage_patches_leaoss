@@ -1,0 +1,26 @@
+From eea46c22de51cb53d40d44bfe8a05f597c8bf7a1 Mon Sep 17 00:00:00 2001
+From: Victor Bo <bvoid@yandex.ru>
+Date: Sun, 19 Sep 2021 20:00:40 +0000
+Subject: [PATCH 5/6] Revert "soong: Add ability to enable
+ product_shipping_api_level variant."
+
+This reverts commit 5ea0fb0c3b32c914bc5c5764272fe14202ccb3a6.
+---
+ core/soong_config.mk | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/core/soong_config.mk b/core/soong_config.mk
+index 456c166e6..8a603b624 100644
+--- a/core/soong_config.mk
++++ b/core/soong_config.mk
+@@ -144,7 +144,6 @@ $(call add_json_bool, Malloc_not_svelte_libc32,          $(if $(MALLOC_SVELTE_FO
+                                                             $(call invert_bool,$(filter true,$(MALLOC_SVELTE_FOR_LIBC32))),\
+                                                             $(call invert_bool,$(filter true,$(MALLOC_SVELTE)))))
+ $(call add_json_str,  Override_rs_driver,                $(OVERRIDE_RS_DRIVER))
+-$(call add_json_val,  Product_shipping_api_level,        $(PRODUCT_SHIPPING_API_LEVEL))
+ 
+ $(call add_json_bool, UncompressPrivAppDex,              $(call invert_bool,$(filter true,$(DONT_UNCOMPRESS_PRIV_APPS_DEXS))))
+ $(call add_json_list, ModulesLoadedByPrivilegedModules,  $(PRODUCT_LOADED_BY_PRIVILEGED_MODULES))
+-- 
+2.30.2
+

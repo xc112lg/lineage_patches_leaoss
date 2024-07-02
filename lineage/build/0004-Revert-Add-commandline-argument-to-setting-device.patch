@@ -1,0 +1,35 @@
+From 640ec55b57659bb02dc29ddb859df74a1ea9fdc6 Mon Sep 17 00:00:00 2001
+From: Victor Bo <bvoid@yandex.ru>
+Date: Sun, 19 Sep 2021 20:00:38 +0000
+Subject: [PATCH 4/6] Revert "Add commandline argument to setting device"
+
+This reverts commit 42577fb2d642f9cd37c0a2639d21c66441623bbe.
+---
+ core/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/core/Makefile b/core/Makefile
+index 202f0753b..468ec43d3 100644
+--- a/core/Makefile
++++ b/core/Makefile
+@@ -2276,7 +2276,7 @@ $(recovery_ramdisk): $(recovery_uncompressed_ramdisk) $(COMPRESSION_COMMAND_DEPS
+ # $(1): output file
+ # $(2): kernel file
+ define build-recoveryimage-target
+-  $(hide) ./vendor/lineage/build/tools/changelog.sh $(TARGET_DEVICE)
++  $(hide) ./vendor/lineage/build/tools/changelog.sh
+   $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/changelog_$(TARGET_DEVICE).txt
+   $(if $(filter true,$(PRODUCT_SUPPORTS_VBOOT)), \
+     $(MKBOOTIMG) --kernel $(2) $(INTERNAL_RECOVERYIMAGE_ARGS) \
+@@ -2771,7 +2771,7 @@ endif
+ 
+ # $(1): output file
+ define build-systemimage-target
+-  $(hide) ./vendor/lineage/build/tools/changelog.sh $(TARGET_DEVICE)
++  $(hide) ./vendor/lineage/build/tools/changelog.sh
+   $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/changelog_$(TARGET_DEVICE).txt
+   @echo "Target system fs image: $(1)"
+   $(call create-system-vendor-symlink)
+-- 
+2.30.2
+

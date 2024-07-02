@@ -1,7 +1,7 @@
-From 9be3ebb19ae065646198638383203f960e14a38c Mon Sep 17 00:00:00 2001
+From 87cc7b00b62c6fcd57cbc626a1d1730c2cc900fc Mon Sep 17 00:00:00 2001
 From: Victor Bo <bvoid@yandex.ru>
 Date: Sat, 8 Feb 2020 16:39:09 +0200
-Subject: [PATCH 05/10] replace to Q Google sounds
+Subject: [PATCH 4/5] replace to Q Google sounds
 
   * from
   https://github.com/Havoc-OS/android_build/commit/8c8e17dce8164fa7e4bea0e2e4787e22bc62c1c9
@@ -18,7 +18,7 @@ Subject: [PATCH 05/10] replace to Q Google sounds
  4 files changed, 10 insertions(+), 10 deletions(-)
 
 diff --git a/target/product/aosp_product.mk b/target/product/aosp_product.mk
-index dd38847f1..6114781ba 100644
+index 1e370fce8..9b138e801 100644
 --- a/target/product/aosp_product.mk
 +++ b/target/product/aosp_product.mk
 @@ -20,12 +20,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
@@ -75,7 +75,7 @@ index f6c92b5e8..d50f3ae9a 100644
 +    ro.config.alarm_alert=Bright_morning.ogg
  endif
 diff --git a/target/product/mainline.mk b/target/product/mainline.mk
-index 9754cc8e2..5859cf9f6 100644
+index 17dc802e5..4ddca79e8 100644
 --- a/target/product/mainline.mk
 +++ b/target/product/mainline.mk
 @@ -27,10 +27,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
@@ -92,5 +92,5 @@ index 9754cc8e2..5859cf9f6 100644
  
  else
 -- 
-2.17.1
+2.25.1
 

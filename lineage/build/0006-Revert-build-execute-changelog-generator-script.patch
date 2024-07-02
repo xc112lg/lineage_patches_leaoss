@@ -1,0 +1,35 @@
+From d7fae69a04d9442c7b0b46e2c3482f690b320f0a Mon Sep 17 00:00:00 2001
+From: Victor Bo <bvoid@yandex.ru>
+Date: Sun, 19 Sep 2021 20:00:41 +0000
+Subject: [PATCH 6/6] Revert "build: execute changelog generator script"
+
+This reverts commit 2060e1d819c32a4d81e0365e3bad21a47bf2f81f.
+---
+ core/Makefile | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/core/Makefile b/core/Makefile
+index 468ec43d3..de2329233 100644
+--- a/core/Makefile
++++ b/core/Makefile
+@@ -2276,8 +2276,6 @@ $(recovery_ramdisk): $(recovery_uncompressed_ramdisk) $(COMPRESSION_COMMAND_DEPS
+ # $(1): output file
+ # $(2): kernel file
+ define build-recoveryimage-target
+-  $(hide) ./vendor/lineage/build/tools/changelog.sh
+-  $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/changelog_$(TARGET_DEVICE).txt
+   $(if $(filter true,$(PRODUCT_SUPPORTS_VBOOT)), \
+     $(MKBOOTIMG) --kernel $(2) $(INTERNAL_RECOVERYIMAGE_ARGS) \
+                  $(INTERNAL_MKBOOTIMG_VERSION_ARGS) $(BOARD_RECOVERY_MKBOOTIMG_ARGS) \
+@@ -2771,8 +2769,6 @@ endif
+ 
+ # $(1): output file
+ define build-systemimage-target
+-  $(hide) ./vendor/lineage/build/tools/changelog.sh
+-  $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/changelog_$(TARGET_DEVICE).txt
+   @echo "Target system fs image: $(1)"
+   $(call create-system-vendor-symlink)
+   $(call create-system-product-symlink)
+-- 
+2.30.2
+
